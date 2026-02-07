@@ -1,0 +1,22 @@
+{
+  "default": {
+    "paths": [
+      "tests/Task1-KIB/Cucumber/features/*.feature"
+    ],
+    "requireModule": [
+      "ts-node/register"
+    ],
+    "require": [
+      "tests/Task1-KIB/Cucumber/hooks/**/*.ts",
+      "tests/Task1-KIB/Cucumber/steps/**/*.ts"
+    ],
+    "formatOptions": {
+      "snippetInterface": "async-await"
+    },
+    "format": [
+      "summary",
+      "progress-bar",
+      ["html", "test-results/cucumber-report.html"]
+    ]
+  }
+}

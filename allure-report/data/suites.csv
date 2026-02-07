@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","14155","OrderWithoutMandatoryDetails","chromium","2026-02-07","passed","2026-02-07","KIBUITests","pom.spec.ts","",""
+"","24064","OrderCompleted","chromium","2026-02-07","passed","2026-02-07","KIBUITests","pom.spec.ts","",""

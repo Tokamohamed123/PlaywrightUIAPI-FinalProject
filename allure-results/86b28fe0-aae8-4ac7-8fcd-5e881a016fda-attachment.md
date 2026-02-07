@@ -1,0 +1,514 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - link "Skip to content" [ref=e7] [cursor=pointer]:
+        - /url: "#checkout-main"
+      - generic [ref=e8]:
+        - banner [ref=e9]:
+          - link "KIB Connect Demo Store 4" [ref=e16] [cursor=pointer]:
+            - /url: https://kib-connect-demo-store-4.myshopify.com/
+            - generic: KIB Connect Demo Store 4
+        - generic [ref=e17]:
+          - generic [ref=e19]:
+            - main [ref=e20]:
+              - heading "KIB Connect Demo Store 4 Checkout" [level=1] [ref=e21]
+              - generic [ref=e23]:
+                - generic [ref=e24]:
+                  - region "Contact" [ref=e25]:
+                    - generic [ref=e29]:
+                      - generic [ref=e30]:
+                        - heading "Contact" [level=2] [ref=e31]
+                        - link "Sign in" [ref=e32] [cursor=pointer]:
+                          - /url: https://kib-connect-demo-store-4.myshopify.com/customer_authentication/login?locale=en-US&return_to=%2Fcheckouts%2Fcn%2FhWN8Vy5ieClQfDzEJqzGM1aN%2Fen-us%3F_r%3DAQABGuK8IRwa3KO0PTVlI9xYDu48-7PcfEsjn5clxXVu%26locale%3Den-US
+                      - generic [ref=e39]:
+                        - generic:
+                          - generic:
+                            - generic: Email or mobile phone number
+                        - textbox "Email or mobile phone number" [ref=e41]: test@gmail.com
+                  - group "Delivery" [ref=e46]:
+                    - generic [ref=e47]:
+                      - heading "Delivery" [level=2] [ref=e49]
+                      - generic [ref=e53]:
+                        - generic [ref=e57]:
+                          - generic [ref=e58]:
+                            - generic [ref=e62]:
+                              - generic:
+                                - generic:
+                                  - generic: Country/Region
+                              - combobox "Country/Region" [ref=e63]:
+                                - option "United States" [selected]
+                              - generic:
+                                - generic:
+                                  - img
+                            - generic [ref=e64]:
+                              - generic [ref=e66]:
+                                - generic:
+                                  - generic:
+                                    - generic: First name (optional)
+                                - textbox "First name (optional)" [ref=e68]
+                              - generic [ref=e70]:
+                                - generic:
+                                  - generic:
+                                    - generic: Last name
+                                - textbox "Last name" [ref=e72]: hassan
+                            - generic [ref=e78]:
+                              - generic:
+                                - generic:
+                                  - generic: Address
+                              - generic [ref=e79]:
+                                - combobox "Address" [ref=e80]: 1522 Cohoe Ct, Kenai, Alaska 99611, USA
+                                - img [ref=e83]
+                            - generic [ref=e88]:
+                              - generic:
+                                - generic:
+                                  - generic: Apartment, suite, etc. (optional)
+                              - textbox "Apartment, suite, etc. (optional)" [ref=e90]
+                            - generic [ref=e91]:
+                              - generic [ref=e92]:
+                                - generic [ref=e93]:
+                                  - generic:
+                                    - generic:
+                                      - generic: City
+                                  - textbox "City" [ref=e95]
+                                - paragraph [ref=e97]: Enter a city
+                              - generic [ref=e98]:
+                                - generic [ref=e100]:
+                                  - generic:
+                                    - generic:
+                                      - generic: State
+                                  - combobox "State" [active] [ref=e101]:
+                                    - option "Alabama"
+                                    - option "Alaska"
+                                    - option "American Samoa"
+                                    - option "Arizona"
+                                    - option "Arkansas"
+                                    - option "California"
+                                    - option "Colorado"
+                                    - option "Connecticut"
+                                    - option "Delaware"
+                                    - option "Micronesia"
+                                    - option "Florida"
+                                    - option "Georgia"
+                                    - option "Guam"
+                                    - option "Hawaii"
+                                    - option "Idaho"
+                                    - option "Illinois"
+                                    - option "Indiana"
+                                    - option "Iowa"
+                                    - option "Kansas"
+                                    - option "Kentucky"
+                                    - option "Louisiana"
+                                    - option "Maine"
+                                    - option "Marshall Islands"
+                                    - option "Maryland"
+                                    - option "Massachusetts"
+                                    - option "Michigan"
+                                    - option "Minnesota"
+                                    - option "Mississippi"
+                                    - option "Missouri"
+                                    - option "Montana"
+                                    - option "Nebraska"
+                                    - option "Nevada"
+                                    - option "New Hampshire"
+                                    - option "New Jersey"
+                                    - option "New Mexico"
+                                    - option "New York"
+                                    - option "North Carolina"
+                                    - option "North Dakota"
+                                    - option "Northern Mariana Islands"
+                                    - option "Ohio"
+                                    - option "Oklahoma"
+                                    - option "Oregon"
+                                    - option "Palau"
+                                    - option "Pennsylvania"
+                                    - option "Puerto Rico"
+                                    - option "Rhode Island"
+                                    - option "South Carolina"
+                                    - option "South Dakota"
+                                    - option "Tennessee"
+                                    - option "Texas"
+                                    - option "Utah"
+                                    - option "Vermont"
+                                    - option "Virginia"
+                                    - option "Washington"
+                                    - option "Washington DC"
+                                    - option "West Virginia"
+                                    - option "Wisconsin"
+                                    - option "Wyoming"
+                                    - option "U.S. Virgin Islands"
+                                    - option "Armed Forces Americas"
+                                    - option "Armed Forces Europe"
+                                    - option "Armed Forces Pacific"
+                                  - generic:
+                                    - generic:
+                                      - img
+                                - paragraph [ref=e103]: Select a state / province
+                              - generic [ref=e105]:
+                                - generic [ref=e106]:
+                                  - generic:
+                                    - generic:
+                                      - generic: ZIP code
+                                  - textbox "ZIP code" [ref=e108]
+                                - paragraph [ref=e110]: Enter a ZIP / postal code
+                            - generic [ref=e113]:
+                              - generic:
+                                - generic:
+                                  - generic: Phone
+                              - generic [ref=e114]:
+                                - textbox "Phone" [ref=e115]: (907) 335-3331
+                                - generic [ref=e117]:
+                                  - button "More information about Phone" [ref=e118] [cursor=pointer]:
+                                    - img [ref=e120]
+                                  - generic [ref=e125]:
+                                    - img "US" [ref=e127]
+                                    - img [ref=e129]
+                                    - combobox "Phone number country code" [ref=e131]:
+                                      - option "Afghanistan(+93)" [selected]
+                                      - option "Åland Islands(+358)"
+                                      - option "Albania(+355)"
+                                      - option "Algeria(+213)"
+                                      - option "Andorra(+376)"
+                                      - option "Angola(+244)"
+                                      - option "Anguilla(+1)"
+                                      - option "Antigua & Barbuda(+1)"
+                                      - option "Argentina(+54)"
+                                      - option "Armenia(+374)"
+                                      - option "Aruba(+297)"
+                                      - option "Ascension Island(+247)"
+                                      - option "Australia(+61)"
+                                      - option "Austria(+43)"
+                                      - option "Azerbaijan(+994)"
+                                      - option "Bahamas(+1)"
+                                      - option "Bahrain(+973)"
+                                      - option "Bangladesh(+880)"
+                                      - option "Barbados(+1)"
+                                      - option "Belarus(+375)"
+                                      - option "Belgium(+32)"
+                                      - option "Belize(+501)"
+                                      - option "Benin(+229)"
+                                      - option "Bermuda(+1)"
+                                      - option "Bhutan(+975)"
+                                      - option "Bolivia(+591)"
+                                      - option "Bosnia & Herzegovina(+387)"
+                                      - option "Botswana(+267)"
+                                      - option "Brazil(+55)"
+                                      - option "British Indian Ocean Territory(+246)"
+                                      - option "British Virgin Islands(+1)"
+                                      - option "Brunei(+673)"
+                                      - option "Bulgaria(+359)"
+                                      - option "Burkina Faso(+226)"
+                                      - option "Burundi(+257)"
+                                      - option "Cambodia(+855)"
+                                      - option "Cameroon(+237)"
+                                      - option "Canada(+1)"
+                                      - option "Cape Verde(+238)"
+                                      - option "Caribbean Netherlands(+599)"
+                                      - option "Cayman Islands(+1)"
+                                      - option "Central African Republic(+236)"
+                                      - option "Chad(+235)"
+                                      - option "Chile(+56)"
+                                      - option "China(+86)"
+                                      - option "Christmas Island(+61)"
+                                      - option "Cocos (Keeling) Islands(+891)"
+                                      - option "Colombia(+57)"
+                                      - option "Comoros(+269)"
+                                      - option "Congo - Brazzaville(+242)"
+                                      - option "Congo - Kinshasa(+243)"
+                                      - option "Cook Islands(+682)"
+                                      - option "Costa Rica(+506)"
+                                      - option "Croatia(+385)"
+                                      - option "Curaçao(+599)"
+                                      - option "Cyprus(+357)"
+                                      - option "Czechia(+420)"
+                                      - option "Côte d’Ivoire(+225)"
+                                      - option "Denmark(+45)"
+                                      - option "Djibouti(+253)"
+                                      - option "Dominica(+1)"
+                                      - option "Dominican Republic(+1)"
+                                      - option "Ecuador(+593)"
+                                      - option "Egypt(+20)"
+                                      - option "El Salvador(+503)"
+                                      - option "Equatorial Guinea(+240)"
+                                      - option "Eritrea(+291)"
+                                      - option "Estonia(+372)"
+                                      - option "Eswatini(+268)"
+                                      - option "Ethiopia(+251)"
+                                      - option "Falkland Islands(+500)"
+                                      - option "Faroe Islands(+298)"
+                                      - option "Fiji(+679)"
+                                      - option "Finland(+358)"
+                                      - option "France(+33)"
+                                      - option "French Guiana(+594)"
+                                      - option "French Polynesia(+689)"
+                                      - option "French Southern Territories(+262)"
+                                      - option "Gabon(+241)"
+                                      - option "Gambia(+220)"
+                                      - option "Georgia(+995)"
+                                      - option "Germany(+49)"
+                                      - option "Ghana(+233)"
+                                      - option "Gibraltar(+350)"
+                                      - option "Greece(+30)"
+                                      - option "Greenland(+299)"
+                                      - option "Grenada(+1)"
+                                      - option "Guadeloupe(+590)"
+                                      - option "Guatemala(+502)"
+                                      - option "Guernsey(+44)"
+                                      - option "Guinea(+224)"
+                                      - option "Guinea-Bissau(+245)"
+                                      - option "Guyana(+592)"
+                                      - option "Haiti(+509)"
+                                      - option "Honduras(+504)"
+                                      - option "Hong Kong SAR(+852)"
+                                      - option "Hungary(+36)"
+                                      - option "Iceland(+354)"
+                                      - option "India(+91)"
+                                      - option "Indonesia(+62)"
+                                      - option "Iraq(+964)"
+                                      - option "Ireland(+353)"
+                                      - option "Isle of Man(+44)"
+                                      - option "Israel(+972)"
+                                      - option "Italy(+39)"
+                                      - option "Jamaica(+1)"
+                                      - option "Japan(+81)"
+                                      - option "Jersey(+44)"
+                                      - option "Jordan(+962)"
+                                      - option "Kazakhstan(+7)"
+                                      - option "Kenya(+254)"
+                                      - option "Kiribati(+686)"
+                                      - option "Kosovo(+383)"
+                                      - option "Kuwait(+965)"
+                                      - option "Kyrgyzstan(+996)"
+                                      - option "Laos(+856)"
+                                      - option "Latvia(+371)"
+                                      - option "Lebanon(+961)"
+                                      - option "Lesotho(+266)"
+                                      - option "Liberia(+231)"
+                                      - option "Libya(+218)"
+                                      - option "Liechtenstein(+423)"
+                                      - option "Lithuania(+370)"
+                                      - option "Luxembourg(+352)"
+                                      - option "Macao SAR(+853)"
+                                      - option "Madagascar(+261)"
+                                      - option "Malawi(+265)"
+                                      - option "Malaysia(+60)"
+                                      - option "Maldives(+960)"
+                                      - option "Mali(+223)"
+                                      - option "Malta(+356)"
+                                      - option "Martinique(+596)"
+                                      - option "Mauritania(+222)"
+                                      - option "Mauritius(+230)"
+                                      - option "Mayotte(+262)"
+                                      - option "Mexico(+52)"
+                                      - option "Moldova(+373)"
+                                      - option "Monaco(+377)"
+                                      - option "Mongolia(+976)"
+                                      - option "Montenegro(+382)"
+                                      - option "Montserrat(+1)"
+                                      - option "Morocco(+212)"
+                                      - option "Mozambique(+258)"
+                                      - option "Myanmar (Burma)(+95)"
+                                      - option "Namibia(+264)"
+                                      - option "Nauru(+674)"
+                                      - option "Nepal(+977)"
+                                      - option "Netherlands(+31)"
+                                      - option "New Caledonia(+687)"
+                                      - option "New Zealand(+64)"
+                                      - option "Nicaragua(+505)"
+                                      - option "Niger(+227)"
+                                      - option "Nigeria(+234)"
+                                      - option "Niue(+683)"
+                                      - option "Norfolk Island(+672)"
+                                      - option "North Macedonia(+389)"
+                                      - option "Norway(+47)"
+                                      - option "Oman(+968)"
+                                      - option "Pakistan(+92)"
+                                      - option "Palestinian Territories(+970)"
+                                      - option "Panama(+507)"
+                                      - option "Papua New Guinea(+675)"
+                                      - option "Paraguay(+595)"
+                                      - option "Peru(+51)"
+                                      - option "Philippines(+63)"
+                                      - option "Pitcairn Islands(+64)"
+                                      - option "Poland(+48)"
+                                      - option "Portugal(+351)"
+                                      - option "Qatar(+974)"
+                                      - option "Réunion(+262)"
+                                      - option "Romania(+40)"
+                                      - option "Russia(+7)"
+                                      - option "Rwanda(+250)"
+                                      - option "Samoa(+685)"
+                                      - option "San Marino(+378)"
+                                      - option "São Tomé & Príncipe(+239)"
+                                      - option "Saudi Arabia(+966)"
+                                      - option "Senegal(+221)"
+                                      - option "Serbia(+381)"
+                                      - option "Seychelles(+248)"
+                                      - option "Sierra Leone(+232)"
+                                      - option "Singapore(+65)"
+                                      - option "Sint Maarten(+1)"
+                                      - option "Slovakia(+421)"
+                                      - option "Slovenia(+386)"
+                                      - option "Solomon Islands(+677)"
+                                      - option "Somalia(+252)"
+                                      - option "South Africa(+27)"
+                                      - option "South Georgia & South Sandwich Islands(+500)"
+                                      - option "South Korea(+82)"
+                                      - option "South Sudan(+211)"
+                                      - option "Spain(+34)"
+                                      - option "Sri Lanka(+94)"
+                                      - option "St. Barthélemy(+590)"
+                                      - option "St. Helena(+290)"
+                                      - option "St. Kitts & Nevis(+1)"
+                                      - option "St. Lucia(+1)"
+                                      - option "St. Martin(+590)"
+                                      - option "St. Pierre & Miquelon(+508)"
+                                      - option "St. Vincent & Grenadines(+1)"
+                                      - option "Sudan(+249)"
+                                      - option "Suriname(+597)"
+                                      - option "Svalbard & Jan Mayen(+47)"
+                                      - option "Sweden(+46)"
+                                      - option "Switzerland(+41)"
+                                      - option "Taiwan(+886)"
+                                      - option "Tajikistan(+992)"
+                                      - option "Tanzania(+255)"
+                                      - option "Thailand(+66)"
+                                      - option "Timor-Leste(+670)"
+                                      - option "Togo(+228)"
+                                      - option "Tokelau(+690)"
+                                      - option "Tonga(+676)"
+                                      - option "Trinidad & Tobago(+1)"
+                                      - option "Tristan da Cunha(+2908)"
+                                      - option "Tunisia(+216)"
+                                      - option "Türkiye(+90)"
+                                      - option "Turkmenistan(+993)"
+                                      - option "Turks & Caicos Islands(+1)"
+                                      - option "Tuvalu(+688)"
+                                      - option "U.S. Outlying Islands(+1)"
+                                      - option "Uganda(+256)"
+                                      - option "Ukraine(+380)"
+                                      - option "United Arab Emirates(+971)"
+                                      - option "United Kingdom(+44)"
+                                      - option "United States(+1)"
+                                      - option "Uruguay(+598)"
+                                      - option "Uzbekistan(+998)"
+                                      - option "Vanuatu(+678)"
+                                      - option "Vatican City(+39)"
+                                      - option "Venezuela(+58)"
+                                      - option "Vietnam(+84)"
+                                      - option "Wallis & Futuna(+681)"
+                                      - option "Western Sahara(+212)"
+                                      - option "Yemen(+967)"
+                                      - option "Zambia(+260)"
+                                      - option "Zimbabwe(+263)"
+                            - generic [ref=e133]:
+                              - generic [ref=e134]:
+                                - checkbox "Save this information for next time" [ref=e135] [cursor=pointer]
+                                - generic:
+                                  - generic:
+                                    - img
+                              - generic [ref=e136] [cursor=pointer]: Save this information for next time
+                          - generic [ref=e137]:
+                            - textbox [ref=e138]
+                            - textbox [ref=e139]: hassan
+                            - textbox [ref=e140]: 1522 Cohoe Ct, Kenai, Alaska 99611, USA
+                            - textbox [ref=e141]
+                            - textbox [ref=e142]
+                            - textbox [ref=e143]: US
+                            - textbox [ref=e144]
+                            - textbox [ref=e145]
+                            - textbox [ref=e146]
+                            - textbox [ref=e147]
+                            - textbox [ref=e148]: "9073353331"
+                        - generic [ref=e149]:
+                          - heading "Shipping method" [level=2] [ref=e150]
+                          - paragraph [ref=e154]: Enter your shipping address to view available shipping methods.
+                  - region "Payment" [ref=e157]:
+                    - group "Payment" [ref=e161]:
+                      - generic [ref=e162]:
+                        - heading "Payment" [level=2] [ref=e163]
+                        - paragraph [ref=e164]: All transactions are secure and encrypted.
+                      - generic [ref=e167]:
+                        - generic [ref=e173]:
+                          - heading "KIB - Postpay" [level=3] [ref=e176]
+                          - paragraph [ref=e181]: Click here to continue with KIB BNPL
+                        - group "Billing address" [ref=e182]:
+                          - heading "Billing address" [level=3] [ref=e183]
+                          - generic [ref=e185]:
+                            - generic [ref=e187] [cursor=pointer]:
+                              - radio "Same as shipping address" [checked] [ref=e189]
+                              - generic [ref=e190]: Same as shipping address
+                            - generic [ref=e192] [cursor=pointer]:
+                              - radio "Use a different billing address" [ref=e194]
+                              - generic [ref=e195]: Use a different billing address
+                    - button "Complete order" [ref=e205] [cursor=pointer]:
+                      - generic:
+                        - generic: Complete order
+                - button [ref=e207] [cursor=pointer]: Submit
+            - contentinfo [ref=e208]:
+              - list [ref=e212]:
+                - listitem [ref=e213]:
+                  - button "Privacy policy" [ref=e214] [cursor=pointer]:
+                    - generic: Privacy policy
+          - complementary [ref=e217]:
+            - generic [ref=e220]:
+              - heading "Order summary" [level=2] [ref=e221]
+              - generic [ref=e224]:
+                - region "Shopping cart" [ref=e225]:
+                  - heading "Shopping cart" [level=3] [ref=e227]
+                  - table "Shopping cart" [ref=e228]:
+                    - rowgroup [ref=e229]:
+                      - row "Product image Description Quantity Price":
+                        - columnheader "Product image" [ref=e230]
+                        - columnheader "Description" [ref=e231]
+                        - columnheader "Quantity" [ref=e232]
+                        - columnheader "Price" [ref=e233]
+                    - rowgroup [ref=e234]:
+                      - row "Quantity 1 Test Product 1 KWD 10.000" [ref=e235]:
+                        - cell "Quantity 1" [ref=e236]:
+                          - generic [ref=e237]:
+                            - img [ref=e240]
+                            - generic [ref=e247]:
+                              - generic [ref=e248]: Quantity
+                              - text: "1"
+                        - cell "Test Product" [ref=e249]:
+                          - paragraph [ref=e251]: Test Product
+                        - cell "1":
+                          - generic [ref=e252]: "1"
+                        - cell "KWD 10.000" [ref=e253]:
+                          - generic [ref=e255]: KWD 10.000
+                - generic:
+                  - generic:
+                    - generic:
+                      - text: Scroll for more items
+                      - generic:
+                        - img
+              - generic [ref=e256]:
+                - heading "Cost summary" [level=3] [ref=e258]
+                - table "Cost summary" [ref=e259]:
+                  - rowgroup [ref=e260]:
+                    - row "Item Value" [ref=e261]:
+                      - columnheader "Item" [ref=e262]
+                      - columnheader "Value" [ref=e263]
+                  - rowgroup [ref=e264]:
+                    - row "Subtotal KWD 10.000" [ref=e265]:
+                      - rowheader "Subtotal" [ref=e266]
+                      - cell "KWD 10.000" [ref=e267]
+                    - row "Shipping Enter shipping address" [ref=e268]:
+                      - rowheader "Shipping" [ref=e269]:
+                        - generic [ref=e271]: Shipping
+                      - cell "Enter shipping address" [ref=e272]
+                    - row "Total KWD 10.000" [ref=e273]:
+                      - rowheader "Total" [ref=e274]:
+                        - strong [ref=e275]: Total
+                      - cell "KWD 10.000" [ref=e276]:
+                        - strong [ref=e278]: KWD 10.000
+    - progressbar [ref=e280]
+  - generic [ref=e281]: Opens external website in a new window.
+  - generic [ref=e282]: Opens in a new window.
+  - generic [ref=e283]: Opens external website.
+  - status [ref=e284]
+  - alert [ref=e285]
+```
