@@ -124,50 +124,12 @@ export default class MandatoryDetailsPage extends basePage {
   }
 
   async completeOrder() {
-    console.log('Starting completeOrder method');
-    
-    try {
-      // Check if button exists before waiting
-      const buttonCount = await this.completeOrderBtn.count();
-      console.log('Complete Order button count in completeOrder:', buttonCount);
-      
-      if (buttonCount === 0) {
-        console.log('Trying to find any submit button...');
-        const allButtons = await this.page.locator('button').all();
-        console.log('Total buttons on page:', allButtons.length);
-        
-        // Look for buttons with specific text
-        const submitButtons = await this.page.locator('button').filter({ hasText: /complete|pay|submit|order/i }).all();
-        console.log('Buttons with checkout text:', submitButtons.length);
-        
-        if (submitButtons.length > 0) {
-          console.log('Using first submit-related button');
-          await submitButtons[0].click();
-        } else {
-          // Fallback to any button
-          if (allButtons.length > 0) {
-            console.log('Using first available button');
-            await allButtons[0].click();
-          } else {
-            throw new Error('No buttons found on page');
-          }
-        }
-      } else {
-        // Original logic for when button is found
-        await this.completeOrderBtn.waitFor({ state: 'visible', timeout: 7000 });
-        console.log('Complete Order button is visible');
-        
-        await this.clickOnElement(this.completeOrderBtn);
-        console.log('Complete Order button clicked');
-      }
+  await this.page.keyboard.press('Tab'); 
 
-      // Wait for the page to process the form submission
-      await this.page.waitForLoadState('networkidle', { timeout: 10000 });
-      console.log('Page load state idle reached after submission');
-    } catch (error) {
-      console.log('Error in completeOrder method:', error);
-      throw error;
-    }
+const completeOrderBtn = this.page.locator('#checkout-pay-button');
+await expect(completeOrderBtn).toBeEnabled({ timeout: 10000 });
+await completeOrderBtn.click({ force: true });
+      // Wait for the page to process the form submission      
   }
 
   /**
