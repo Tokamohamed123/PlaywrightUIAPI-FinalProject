@@ -76,11 +76,20 @@ export default class MandatoryDetailsPage extends basePage {
     console.log('Starting to fill phone:', phone);
     
     try {
+      // Wait for phone input to be ready with longer timeout
+      await this.phoneInput.waitFor({ state: 'visible', timeout: 15000 });
+      console.log('Phone input is ready');
+      
       await this.enterTextToElement(this.phoneInput, phone);
       console.log('Phone number filled successfully');
       
-      await this.page.waitForLoadState('networkidle');
-      console.log('Page load state idle reached');
+      // Wait for any validation or processing to complete
+      await this.page.waitForTimeout(2000);
+      
+      // Check if page is still active before proceeding
+      if (this.page.isClosed()) {
+        throw new Error('Page was closed before completing phone entry');
+      }
       
       // Scroll down to ensure the Complete Order button is in view
       await this.page.evaluate(() => {
@@ -92,7 +101,7 @@ export default class MandatoryDetailsPage extends basePage {
       await this.page.waitForTimeout(1000);
       console.log('Page stabilized after scrolling');
       
-      // Check if button exists before waiting for it
+      // Check if button exists before waiting
       const buttonCount = await this.completeOrderBtn.count();
       console.log('Complete Order button count:', buttonCount);
       

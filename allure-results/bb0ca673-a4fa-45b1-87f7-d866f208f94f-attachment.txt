@@ -1,0 +1,15 @@
+Starting to fill address: 123 Main Street
+Found address suggestions, selecting first one
+Phone input is ready
+Starting to fill phone: (907) 247-9199
+Phone number filled successfully
+Page load state idle reached
+Scrolled to bottom of page
+Page stabilized after scrolling
+Complete Order button count: 1
+Complete Order button is enabled
+Starting completeOrder method
+Complete Order button count in completeOrder: 1
+Complete Order button is visible
+Complete Order button clicked
+Page load state idle reached after submission
