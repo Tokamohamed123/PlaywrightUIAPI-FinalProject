@@ -1,4 +1,4 @@
-@API
+@api
 Feature: API E2E Scenarios - Swagger Notes Management
 
   Background:

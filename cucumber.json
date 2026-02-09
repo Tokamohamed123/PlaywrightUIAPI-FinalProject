@@ -1,28 +1,25 @@
 {
   "default": {
-    "paths": [
-      "tests/Task1-KIB/Cucumber/features/*.feature",
-      "tests/Task2-Flutter/FlutterCucumber/features/*.feature",
-      "tests/Task3-API/api/features/*.feature"
-    ],
-    "requireModule": [
-      "ts-node/register"
-    ],
-    "require": [
-      "tests/Task1-KIB/Cucumber/hooks/**/*.ts",
-      "tests/Task1-KIB/Cucumber/steps/**/*.ts",
-      "tests/Task2-Flutter/FlutterCucumber/hooks/**/*.ts",
-      "tests/Task2-Flutter/FlutterCucumber/steps/**/*.ts",
-      "tests/Task3-API/api/hooks/**/*.ts",
-      "tests/Task3-API/api/apiSteps/**/*.ts"
-    ],
-    "formatOptions": {
-      "snippetInterface": "async-await"
-    },
-    "format": [
-      "summary",
-      "progress-bar",
-       "allure-cucumberjs/reporter"
-    ]
+    "requireModule": ["ts-node/register"],
+    "formatOptions": { "snippetInterface": "async-await" },
+    "format": ["summary", "progress-bar", "allure-cucumberjs/reporter"]
+  },
+  "kib": {
+    "requireModule": ["ts-node/register"],
+    "paths": ["tests/Task1-KIB/Cucumber/features/*.feature"],
+    "require": ["tests/Task1-KIB/Cucumber/hooks/**/*.ts", "tests/Task1-KIB/Cucumber/steps/**/*.ts"],
+    "format": ["summary", "allure-cucumberjs/reporter"]
+  },
+  "flutter": {
+    "requireModule": ["ts-node/register"],
+    "paths": ["tests/Task2-Flutter/FlutterCucumber/features/*.feature"],
+    "require": ["tests/Task2-Flutter/FlutterCucumber/hooks/**/*.ts", "tests/Task2-Flutter/FlutterCucumber/steps/**/*.ts"],
+    "format": ["summary", "allure-cucumberjs/reporter"]
+  },
+  "api": {
+    "requireModule": ["ts-node/register"],
+    "paths": ["tests/Task3-API/api/features/*.feature"],
+    "require": ["tests/Task3-API/api/hooks/**/*.ts", "tests/Task3-API/api/apiSteps/**/*.ts"],
+    "format": ["summary", "allure-cucumberjs/reporter"]
   }
 }

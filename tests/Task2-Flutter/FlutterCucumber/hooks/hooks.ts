@@ -7,24 +7,25 @@ let browser: Browser;
 let context: BrowserContext;
 
 BeforeAll(async function () {
-    browser = await chromium.launch({ headless: false });
+   browser = await chromium.launch({ 
+        headless: false,
+        args: ['--start-maximized'] 
+    });
 });
 
-Before({ tags: "@Flutter" }, async function () {
-    if (!browser) {
-        browser = await chromium.launch({ headless: false });
-    }
-    // separate context and page for each scenario to ensure isolation
-    this.context = await browser.newContext();
+Before({ tags: "@flutter" }, async function () {
+    this.context = await browser.newContext({
+        viewport: null //full screen
+    });
     this.page = await this.context.newPage();
 
-    // create screenshots directory 
+    // check if screenshots directory exists, if not create it 
     if (!fs.existsSync('screenshots')) {
-        fs.mkdirSync('screenshots');
+        fs.mkdirSync('screenshots', { recursive: true });
     }
 });
 
-After({ tags: "@Flutter" }, async function (scenario) {
+After({ tags: "@flutter" }, async function (scenario) {
     // take screenshot on failure
     if (scenario.result?.status === Status.FAILED) {
         const path = `screenshots/failed-${scenario.pickle.name}.png`;

@@ -6,8 +6,9 @@ import LoginPage from "../../../Task1-KIB/KIBTask1/KibPages/LoginPage";
 import ProductPage from "../../../Task1-KIB/KIBTask1/KibPages/ProductPage";
 import MandatoryDeatailsPage from "../../../Task1-KIB/KIBTask1/KibPages/MandatoryDeatilsPage";
 
+
 Given('I navigate to the KIB demo store', async function () {
-    await this.page.goto('https://kib-connect-demo-store-4.myshopify.com/password');
+    await this.page.goto(testData.baseUrl);
 });
 
 Given('I login with valid credentials', async function () {

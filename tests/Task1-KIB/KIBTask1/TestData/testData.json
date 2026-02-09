@@ -1,4 +1,8 @@
 {
+
+  
+  "baseUrl": "https://kib-connect-demo-store-4.myshopify.com/password",
+
   "usUser": {
     "email": "test@example.com",
     "lastName": "Test",
