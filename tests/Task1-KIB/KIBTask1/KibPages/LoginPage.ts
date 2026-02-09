@@ -1,5 +1,3 @@
-
-
 import basePage from "./basePage";
 
 export default class LoginPage extends basePage{
@@ -10,18 +8,19 @@ export default class LoginPage extends basePage{
  private readonly ClickEnterButton = this.page.locator(
   "//button[@type='submit']" );
 
-  //////////////////////////////////Functions////////////////////
+  ////////////////////////////////Functions////////////////////
  async EnterPassword() {
+    // Explicit Wait
+    await this.Enterpassword.waitFor({ state: 'visible', timeout: 10000 });
     await this.enterTextToElement(this.Enterpassword,"Test123");
     
   }
 
 async ClickEnterBtn() {
+  // explicit Wait
+  await this.ClickEnterButton.waitFor({ state: 'visible', timeout: 10000 });
   await this.clickOnElement(this.ClickEnterButton);
 
  
   }
 }
-
-
-

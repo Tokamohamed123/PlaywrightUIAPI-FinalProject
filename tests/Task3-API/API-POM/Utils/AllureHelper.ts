@@ -1,10 +1,25 @@
 import { allure } from "allure-playwright";
 
 export class AllureHelper {
+
+async executeAndAttach(
+        context: any, 
+        name: string, 
+        method: string, 
+        url: string, 
+        call: Promise<any>, 
+        requestData?: any
+    ) {
+      
+        const res = await call;
+        await this.attachResponse(context, name, method, url, res, requestData);
+
+        return res; 
+    }
     
      // func to add API response as attachment in Allure and Cucumber
     /// static func to call it without creating a new object of the class to use it directly
-    static async attachResponse(context: any, name: string, method: string, url: string, res: any, requestData?: any) {
+     async attachResponse(context: any, name: string, method: string, url: string, res: any, requestData?: any) {
     console.log(`🚀 Step: Attaching API response for: ${name}`); 
     
     try {
@@ -36,4 +51,5 @@ export class AllureHelper {
         console.error(`Failed to attach ${name}:`, e);
     }
 }
+
 }

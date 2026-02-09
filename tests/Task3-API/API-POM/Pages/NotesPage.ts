@@ -16,22 +16,22 @@ export class NotesPage {
         });
     }
 
-    async updateNote(token: string, noteId: string, updatedData: any) {
+    async updateNote(token: any, noteId: string, updatedData: any) {
         return await this.request.put(`${this.baseUrl}/notes/${noteId}`, {
-            headers: { 'x-auth-token': token },
+            headers: { 'x-auth-token': String(token || '') },
             data: updatedData
         });
     }
 
     async getNote(token: string, noteId: string) {
         return await this.request.get(`${this.baseUrl}/notes/${noteId}`, {
-            headers: { 'x-auth-token': token }
+            headers: { 'x-auth-token': String(token || '') }
         });
     }
 
     async deleteNote(token: string, noteId: string) {
         return await this.request.delete(`${this.baseUrl}/notes/${noteId}`, {
-            headers: { 'x-auth-token': token }
+            headers: { 'x-auth-token': String(token || '') }
         });
     }
 }

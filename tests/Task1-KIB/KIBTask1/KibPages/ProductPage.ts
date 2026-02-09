@@ -1,4 +1,3 @@
-
 import basePage from "./basePage";
 
 export default class ProductPage extends basePage {
@@ -31,17 +30,19 @@ export default class ProductPage extends basePage {
 
     async ClickOnBuyNow() {
         // Wait for the product detail page to load by checking the Buy Now button
+        // Explicit Wait for the Buy Now button to be visible and clickable
         await this.BuyNowBTAlternative.waitFor({ state: 'visible', timeout: 15000 });
         await this.BuyNowBTAlternative.click();
         
         // Wait for the checkout page to load
         await this.page.waitForLoadState('domcontentloaded');
+        await this.page.waitForLoadState('networkidle'); 
     }
 }
 //////////////////////////////////////////////////////////////////
 
    
 // async ClickOnBuyNow() {
-//     await this.BuyNowBT.waitFor({ state: 'visible', timeout: 5000 });
-//     await this.clickOnElement(this.BuyNowBT);
+//    await this.BuyNowBT.waitFor({ state: 'visible', timeout: 5000 });
+//    await this.clickOnElement(this.BuyNowBT);
 // }

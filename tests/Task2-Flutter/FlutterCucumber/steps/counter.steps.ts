@@ -11,90 +11,80 @@ Given('navigate to the Flutter Angular app', async function () {
 });
 
 Given('enable Flutter accessibility semantics', async function () {
-    console.log("🛠️ Activating Flutter semantics...");
+    console.log(" Activating Flutter semantics...");
     await this.flutterPage.enableSemantics();
 });
 
 When('I click the "+" increment button', async function () {
     // get the value before clicking 
     valueBefore = await this.flutterPage.getCounterValue();
+    
+    // --- سكرين شوت قبل الزيادة ---
+    const image = await this.page.screenshot({ fullPage: true });
+    this.attach(image, 'image/png');
+    
     await this.flutterPage.incrementCounter();
 });
 
 When('I click on a neutral area of the screen', async function () {
     valueBefore = await this.flutterPage.getCounterValue();
+    
+    // --- take screenshot before clicking neutral area ---
+    const image = await this.page.screenshot({ fullPage: true });
+    this.attach(image, 'image/png');
+    
     await this.flutterPage.clickNeutralArea();
 });
 
+
 // Then('The counter should display {string}', async function (expectedValue: string) {
-//     // استخراج الرقم من النص (مثلاً 1 من "Index: 1")
-//     const matchFromFeature = expectedValue.match(/\d+/);
-//     const expectedNum = matchFromFeature ? parseInt(matchFromFeature[0]) : 0;
-
-//     if (expectedNum > 0) {
-//         // ننتظر التغيير فقط إذا كنا نتوقع زيادة
-//         await this.page.waitForFunction(
-//             (prev: number) => {
-//                 const elements = Array.from(document.querySelectorAll('flt-semantics'));
-//                 const label = elements.map(el => el.getAttribute('aria-label') || '')
-//                                       .find(l => l.includes('Index:'));
-//                 const match = label?.match(/\d+/);
-//                 const now = match ? parseInt(match[0]) : 0;
-//                 return now > prev; 
-//             },
-//             valueBefore,
-//             { timeout: 15000 }
-//         );
-//     } else {
-//         // إذا كنا نتوقع صفر، ننتظر ثانية واحدة للتأكد من ثبات الحالة
-//         await this.page.waitForTimeout(1000);
-//     }
-
-//     const valueNow = await this.flutterPage.getCounterValue();
-//     console.log(`Analysis: Before=${valueBefore}, Expected=${expectedNum}, Now=${valueNow}`);
-
-//     expect(valueNow).toBe(expectedNum);
+// ... (Your original commented code)
 // });
 
 Then('The counter should display {string}', async function (expectedValue: string) {
     const matchFromFeature = expectedValue.match(/\d+/);
     const expectedNum = matchFromFeature ? parseInt(matchFromFeature[0]) : 0;
 
-    if (expectedNum > 0) {
+    // --- Explicit Wait ---
+    if (expectedNum > valueBefore) {
         try {
+            // Semantics Tree wait until the expected value appears
             await this.page.waitForFunction(
-                (prev: number) => {
+                (expected: number) => {
                     const elements = Array.from(document.querySelectorAll('flt-semantics, [aria-label]'));
-                    const labels = elements.map(el => el.getAttribute('aria-label') || "");
-                    const label = labels.find(l => l.includes('Index:') || /^\d+$/.test(l.trim()));
+                    const label = elements.map(el => el.getAttribute('aria-label') || "")
+                                          .find(l => l.includes('Index:') || /^\d+$/.test(l.trim()));
                     const match = label?.match(/\d+/);
-                    const now = match ? parseInt(match[0]) : 0;
-                    return now > prev; 
+                    return match ? parseInt(match[0]) === expected : false;
                 },
-                valueBefore,
-                { timeout: 10000 } // تقليل الوقت للتجربة
+                expectedNum,
+                { timeout: 15000 } // ينتظر حتى 15 ثانية كحد أقصى ولكنه يكمل فور تحقق الشرط
             );
         } catch (e) {
-            // إذا فشل الانتظار، اطبع كل الـ labels الموجودة في الصفحة لنعرف المشكلة
             const allLabels = await this.page.evaluate(() => 
                 Array.from(document.querySelectorAll('flt-semantics, [aria-label]'))
                      .map(el => el.getAttribute('aria-label'))
                      .filter(l => l)
             );
-            console.log("Timeout reached. Available labels in page:", allLabels);
-            throw e; // ارفع الخطأ بعد الطباعة
+            console.log("Explicit Wait Timeout. Labels found:", allLabels);
+            throw e; 
         }
+    } else {
+       // wait a moment to check that the value does NOT change when clicking neutral area
+        await this.page.waitForTimeout(1000);
     }
 
     const valueNow = await this.flutterPage.getCounterValue();
-    console.log(`📊 Final Check: Expected=${expectedNum}, Now=${valueNow}`);
+
+    // --- take screenshot AFTER action ---
+    const finalImage = await this.page.screenshot({ fullPage: true });
+    this.attach(finalImage, 'image/png');
+
+    console.log(` Final Check: Expected=${expectedNum}, Now=${valueNow}`);
     expect(valueNow).toBe(expectedNum);
 });
 
 //////////////////////////////////////////
-
-
-
 
 
 // import { Given, When, Then, setDefaultTimeout } from '@cucumber/cucumber';
@@ -111,7 +101,7 @@ Then('The counter should display {string}', async function (expectedValue: strin
 // });
 
 // Given('enable Flutter accessibility semantics', { timeout: 60000 }, async function () {
-//     console.log("🛠️ Attempting Hard Activation of Semantics...");
+//     console.log(" Attempting Hard Activation of Semantics...");
 
 //     // will wait to Activating the ‘Hidden Eye’ (Semantics)
 //     const placeholder = this.page.locator('flt-semantics-placeholder');
@@ -162,7 +152,7 @@ Then('The counter should display {string}', async function (expectedValue: strin
 //     const match = currentLabel?.match(/\d+/);
 //     const valueNow = match ? parseInt(match[0]) : -1;
 
-//     console.log(`📊 Result Analysis:`);
+//     console.log(`Result Analysis:`);
 //     console.log(`   - Value BEFORE interaction: ${valueBefore}`);
 //     console.log(`   - Value NOW: ${valueNow}`);
 
@@ -170,10 +160,10 @@ Then('The counter should display {string}', async function (expectedValue: strin
 //     if (expectedFromFeature > 0) {
 //         // If the scenario expects an increase
 //         expect(valueNow).toBe(valueBefore + 1);
-//         console.log(`✅ Success: Value incremented from ${valueBefore} to ${valueNow}`);
+//         console.log(`Success: Value incremented from ${valueBefore} to ${valueNow}`);
 //     } else {
 //         // If the scenario expects no change (stays at zero/current)
 //         expect(valueNow).toBe(valueBefore);
-//         console.log(`✅ Success: Value remained stable at ${valueNow}`);
+//         console.log(`Success: Value remained stable at ${valueNow}`);
 //     }
 // });
