@@ -14,5 +14,12 @@
     "title": "Initial Note Title",
     "updatedTitle": "Updated Note Title",
     "description": "This note is created for E2E testing purposes"
-  }
+  },
+
+ 
+  "registrationErrors": [
+    { "desc": "Short Password", "name": "tokam", "email": "short@test.com", "pass": "123" },
+    { "desc": "Long Password", "name": "tokam", "email": "long@test.com", "pass": "thispasswordiswaytoolongtoberegistered" },
+    { "desc": "Empty Password", "name": "tokam", "email": "empty@test.com", "pass": "" }
+  ]
 }

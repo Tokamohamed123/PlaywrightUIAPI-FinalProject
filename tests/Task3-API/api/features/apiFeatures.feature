@@ -11,12 +11,12 @@ Feature: API E2E Scenarios - Swagger Notes Management
     Then The user should be created successfully
     And I log in and change password from "newUser" data
     Then The password should be updated successfully
-    
+
     # 2. note
     When I log in with the new password for "newUser"
     And I add a new note using "noteData"
     Then The note should be created successfully
-    
+
     When I update the note using "noteData"
     Then The note should reflect the updated changes
 
@@ -24,7 +24,13 @@ Feature: API E2E Scenarios - Swagger Notes Management
     Then The note should no longer exist in the system
 
 
-  # (Negative Scenario)
+  # (Negative Scenario) Duplicate Email Registration
   Scenario: Negative Path - Verify Duplicate Email Registration
     When I try to register with an existing email from "duplicateUser"
     Then I should receive an error "An account already exists with the same email address"
+
+
+  # (Negative Scenario) register with invalid password
+  Scenario: Verify Registration Password Length Validation with Multiple Data Sets
+    When I attempt registration with all invalid password data from "registrationErrors"
+    Then all attempts should fail with status 400 and the correct error message
