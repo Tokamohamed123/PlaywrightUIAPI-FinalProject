@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "clean:reports": "rimraf allure-report allure-results",
+    "test:cucumber": "cucumber-js tests/Task2-Flutter/FlutterCucumber/features/*.feature || cd .",
+    "generate:report": "allure generate allure-results --clean -o allure-report",
+    "open:report": "allure open allure-report",
+    "test": "npm run clean:reports && npm run test:cucumber && npm run generate:report && npm run open:report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -1,0 +1,25 @@
+{
+  "step": "Initial Login",
+  "request": {
+    "method": "POST",
+    "url": "https://practice.expandtesting.com/notes/api/users/login",
+    "data": {
+      "email": "user_1770625510815@test.com",
+      "password": "OldPassword123"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "status": 200,
+      "message": "Login successful",
+      "data": {
+        "id": "698999e7f7461602953e02ab",
+        "name": "Automation Tester",
+        "email": "user_1770625510815@test.com",
+        "token": "4b84314fe9ad4795813ed2159059497f165c77ecdffe48858c6705f9e08b6963"
+      }
+    }
+  }
+}
