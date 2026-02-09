@@ -16,7 +16,7 @@ BeforeAll(async function () {
     
 });
 
-Before(async function () {
+Before({ tags: "@KIB" },async function () {
     context = await browser.newContext();
     const page = await context.newPage();
     this.page = page;
@@ -27,7 +27,7 @@ Before(async function () {
     this.mandatoryDeatailsPage = new MandatoryDeatailsPage(page);
 });
 
-After(async function () {
+After({ tags: "@KIB" },async function () {
     // Take screenshot before closing browser
     if (this.page) {
         try {

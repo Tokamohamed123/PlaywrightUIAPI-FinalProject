@@ -11,14 +11,14 @@ Given('I navigate to the KIB demo store', async function () {
 });
 
 Given('I login with valid credentials', async function () {
-    // نأخذ خطوات الـ loginPage من كودك
+    // from loginPage class
     await this.loginPage.EnterPassword();
     await this.loginPage.ClickEnterBtn();
     await this.page.waitForTimeout(3000);
 });
 
 When('I select the test product and proceed to buy', async function () {
-    // نأخذ خطوات الـ productPage من كودك
+    // from productPage class
     await this.productPage.ClickOnTestProduct();
     await this.page.waitForTimeout(3000);
     await this.productPage.ClickOnBuyNow();
@@ -26,7 +26,7 @@ When('I select the test product and proceed to buy', async function () {
 });
 
 When('I fill the mandatory details using test data', async function () {
-    // نأخذ خطوات الـ mandatoryDeatailsPage من كودك مع بيانات الـ JSON
+    // from mandatoryDeatailsPage class
     const user = testData.usUser;
     await this.mandatoryDeatailsPage.fillEmail(user.email);
     await this.mandatoryDeatailsPage.enterLastName(user.lastName);
@@ -35,10 +35,10 @@ When('I fill the mandatory details using test data', async function () {
 });
 
 Then('I should complete the order successfully', async function () {
-    // نأخذ الخطوة النهائية
+    
     await this.mandatoryDeatailsPage.completeOrder();
     
-    // لإضافة الصورة (Screenshot) في Cucumber عند النجاح أو الفشل
+    // take screenshot after order completion and attach to the report
     const image = await this.page.screenshot();
     this.attach(image, 'image/png');
 

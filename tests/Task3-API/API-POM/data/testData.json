@@ -1,0 +1,18 @@
+{
+  "newUser": {
+    "name": "Automation Tester",
+    "email": "will_be_generated_dynamically@test.com",
+    "password": "OldPassword123",
+    "newPassword": "NewSecurePass456"
+  },
+  "duplicateUser": {
+    "name": "Existing User",
+    "email": "testpppp@gmail.com",
+    "password": "anyPassword123"
+  },
+  "noteData": {
+    "title": "Initial Note Title",
+    "updatedTitle": "Updated Note Title",
+    "description": "This note is created for E2E testing purposes"
+  }
+}

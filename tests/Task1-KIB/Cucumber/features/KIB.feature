@@ -1,3 +1,4 @@
+@KIB
 Feature: KIB Store Purchase Flow
 
 # Background it will be run before each scenario 

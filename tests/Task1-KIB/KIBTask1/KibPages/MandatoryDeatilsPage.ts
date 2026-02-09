@@ -12,13 +12,10 @@ export default class MandatoryDetailsPage extends basePage {
 
   constructor(page: Page) {
     super(page);
-    // نستخدم :visible لضمان عدم حدوث Strict Mode violation مع العناصر المخفية
     this.emailInput = page.locator("input[name='email']:visible").first();
     this.lastNameInput = page.locator("input[name='lastName']:visible").first();
     this.addressInput = page.locator("input[name='address1']:visible").first();
-    // استخدام selector يغطي كل احتمالات حقل الهاتف في Shopify
     this.phoneInput = page.locator("input[name='phone']:visible, input[type='tel']:visible").first();
-    // More robust locator for the Complete Order button
     this.completeOrderBtn = page.locator("button[type='submit'], button[data-test-id='checkout-pay-button'], #checkout-pay-button, .pay-button, .checkout-pay-button").first();
   }
 
