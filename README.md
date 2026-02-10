@@ -123,7 +123,7 @@ npm test
 ### Viewing Test Results
 
 **Option 1: Automatic report generation (Recommended)**
-When you run `npx test`, the framework automatically:
+When you run `npm test`, the framework automatically:
 1. Cleans old reports
 2. Runs all tests in parallel
 3. Generates the report
@@ -140,6 +140,11 @@ After running individual tests, you can generate and view detailed reports:
 2. **Open the report in your browser:**
    ```bash
    npm run open:report
+   ```
+
+3. **Alternative: Open report directly with Allure:**
+   ```bash
+   allure open allure-report
    ```
 
 The report will show:

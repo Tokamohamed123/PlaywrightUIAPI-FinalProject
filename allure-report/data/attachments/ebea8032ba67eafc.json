@@ -1,0 +1,22 @@
+{
+  "step": "Validation Check: Short Password",
+  "duration": "291ms",
+  "request": {
+    "method": "POST",
+    "url": "https://practice.expandtesting.com/notes/api/users/register",
+    "data": {
+      "desc": "Short Password",
+      "name": "tokam",
+      "email": "short@test.com",
+      "pass": "123"
+    }
+  },
+  "response": {
+    "status": 400,
+    "body": {
+      "success": false,
+      "status": 400,
+      "message": "Password must be between 6 and 30 characters"
+    }
+  }
+}
