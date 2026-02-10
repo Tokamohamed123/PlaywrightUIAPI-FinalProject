@@ -1,0 +1,20 @@
+{
+  "step": "Register with Existing Email",
+  "duration": "327ms",
+  "request": {
+    "method": "POST",
+    "url": "https://practice.expandtesting.com/notes/api/users/register",
+    "data": {
+      "name": "Existing User",
+      "email": "testpppp@gmail.com"
+    }
+  },
+  "response": {
+    "status": 409,
+    "body": {
+      "success": false,
+      "status": 409,
+      "message": "An account already exists with the same email address"
+    }
+  }
+}
