@@ -8,6 +8,7 @@ export default class MandatoryDetailsPage extends basePage {
   private readonly addressInput: Locator;
   private readonly phoneInput: Locator;
   private readonly completeOrderBtn: Locator;
+  private readonly shippingMethodSection: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -16,6 +17,8 @@ export default class MandatoryDetailsPage extends basePage {
     this.addressInput = page.locator("input[name='address1']").first();
     this.phoneInput = page.locator("input[name='phone'], input[type='tel']").first();
     this.completeOrderBtn = page.locator("button[type='submit'], button[data-test-id='checkout-pay-button'], #checkout-pay-button, .pay-button, .checkout-pay-button").first();
+    this.shippingMethodSection = page.locator("#shipping_methods");
+ 
   }
 
   // methods
@@ -38,75 +41,26 @@ export default class MandatoryDetailsPage extends basePage {
     await this.addressInput.fill(address);
     
     // Wait for address suggestions to appear (Google Maps or similar auto-complete)
-    await this.page.waitForTimeout(2000);
-    
-    // Check if address suggestions appear and handle them if they do
-    const addressOptions = this.page.locator('[role="option"]');
-    const optionCount = await addressOptions.count();
-    
-    if (optionCount > 0) {
-      console.log('Found address suggestions, selecting first one');
-      // Select the first suggestion
-      await this.page.keyboard.press('ArrowDown');
-      await this.page.keyboard.press('Enter');
-      
-      // Wait for suggestions to disappear and address to be populated
-      await this.page.waitForTimeout(1000);
-      
-      // Verify the address field has been updated with the selected suggestion
-      const filledAddress = await this.addressInput.inputValue();
-      console.log('Address after selection:', filledAddress);
+   const firstOption = this.page.locator('[role="option"]').first();
+    await firstOption.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
+    if (await firstOption.isVisible()) {
+      await firstOption.click();
     } else {
-      console.log('No address suggestions found, using manually entered address');
+      await this.page.keyboard.press('Enter');
     }
-    
-    // Wait for phone input to be ready
-    await this.phoneInput.waitFor({ timeout: 10000 });
+
+    // Explicit Wait to check if address suggestions appear and choose the first one
+    await this.shippingMethodSection.waitFor({ state: 'visible', timeout: 15000 });
     console.log('Phone input is ready');
   }
 
   async enterPhone(phone: string) {
     console.log('Starting to fill phone:', phone);
-    
-    // Wait for phone input to be ready
-    await this.phoneInput.waitFor({ timeout: 15000 });
-    console.log('Phone input is ready');
-    
+    await this.phoneInput.waitFor({ state: 'visible', timeout: 10000 });
     await this.enterTextToElement(this.phoneInput, phone);
-    console.log('Phone number filled successfully');
     
-    // Wait for any network activity to settle
-    await this.page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});
-    
-    // Scroll down to ensure the Complete Order button is in view
-    await this.page.evaluate(() => {
-      window.scrollTo(0, document.body.scrollHeight);
-    });
-    console.log('Scrolled to bottom of page');
-    
-    // Wait for the Complete Order button to be visible and enabled
-    await this.completeOrderBtn.waitFor({ timeout: 10000 });
-    console.log('Complete Order button is visible');
-    
-    // Check if button is enabled before clicking
-    const isButtonEnabled = await this.completeOrderBtn.isEnabled();
-    if (isButtonEnabled) {
-      console.log('Complete Order button is enabled');
-    } else {
-      console.log('Complete Order button is not enabled yet, waiting...');
-      // Wait for the button to become enabled by checking periodically
-      let attempts = 0;
-      const maxAttempts = 10;
-      while (!await this.completeOrderBtn.isEnabled() && attempts < maxAttempts) {
-        await this.page.waitForTimeout(1000);
-        attempts++;
-      }
-      if (await this.completeOrderBtn.isEnabled()) {
-        console.log('Complete Order button is now enabled');
-      } else {
-        console.log('Complete Order button is still not enabled after waiting');
-      }
-    }
+    await this.completeOrderBtn.scrollIntoViewIfNeeded();
+    await expect(this.completeOrderBtn).toBeEnabled({ timeout: 10000 });
   }
 
 //  async completeOrder() {
@@ -120,13 +74,7 @@ export default class MandatoryDetailsPage extends basePage {
  
 //   }
 async completeOrder() {
-    // Wait for the Complete Order button to be visible and enabled
-    await this.completeOrderBtn.waitFor({ timeout: 15000 });
-    
-    // Scroll the button into view
-    await this.completeOrderBtn.scrollIntoViewIfNeeded();
-    
-    // Click the button
+    await this.completeOrderBtn.waitFor({ state: 'visible', timeout: 10000 });
     await this.completeOrderBtn.click();
     
     // Wait for the page to load after clicking
@@ -142,4 +90,10 @@ async completeOrder() {
     await this.fillAddress(data.address);
     await this.enterPhone(data.phone);
   }
+
+  async getPaymentErrorMessage() {
+    const banner = this.page.locator('#PaymentErrorBanner');
+    await banner.waitFor({ state: 'visible' });
+    return banner;
+}
 }

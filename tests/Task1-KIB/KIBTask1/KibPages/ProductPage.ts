@@ -19,24 +19,40 @@ export default class ProductPage extends basePage {
 
     /////////////////Methods///////////////////
     async ClickOnTestProduct() {
-        // Wait for the product grid to be visible first
-        await this.page.locator("//div[@data-testid='resource-list-grid']").waitFor({ state: 'visible', timeout: 15000 });
-        await this.AddTestProductToCart.waitFor({ state: 'visible', timeout: 15000 });
-        await this.AddTestProductToCart.click();
-        
-        // Wait for the product detail page to load
-        await this.page.waitForLoadState('domcontentloaded');
+ const productLink = this.page.locator("product-title")
+        .filter({ hasText: /^Test Product$/ })
+        .locator('a')
+        .first(); // .first() means if there are multiple matches, take the first one
+
+    await this.AddTestProductToCart.waitFor({ state: 'visible', timeout: 15000 });
+    await this.AddTestProductToCart.scrollIntoViewIfNeeded();
+    await this.AddTestProductToCart.click({ force: true });
+    
+    console.log('Successfully clicked on the product');
+
+
+    const buyNowBtn = this.page.getByRole('button', { name: 'Buy it now' });
+    await buyNowBtn.waitFor({ state: 'visible', timeout: 15000 });
     }
 
     async ClickOnBuyNow() {
-        // Wait for the product detail page to load by checking the Buy Now button
-        // Explicit Wait for the Buy Now button to be visible and clickable
-        await this.BuyNowBTAlternative.waitFor({ state: 'visible', timeout: 15000 });
+    await this.BuyNowBTAlternative.waitFor({ state: 'visible', timeout: 10000 });
         await this.BuyNowBTAlternative.click();
+    // Wait for the URL to change to the checkout page
+    await this.page.waitForURL(/.*checkout.*/, { timeout: 20000 });
+    
+    const emailInput = this.page.locator("input[name='email']").first();
+    await emailInput.waitFor({ state: 'visible', timeout: 15000 });
+
+    console.log('Successfully redirected to Checkout page');
+        // // Wait for the product detail page to load by checking the Buy Now button
+        // // Explicit Wait for the Buy Now button to be visible and clickable
+        // await this.BuyNowBTAlternative.waitFor({ state: 'visible', timeout: 15000 });
+        // await this.BuyNowBTAlternative.click();
         
-        // Wait for the checkout page to load
-        await this.page.waitForLoadState('domcontentloaded');
-        await this.page.waitForLoadState('networkidle'); 
+        // // Wait for the checkout page to load
+        // await this.page.waitForLoadState('domcontentloaded');
+        // await this.page.waitForLoadState('networkidle'); 
     }
 }
 //////////////////////////////////////////////////////////////////

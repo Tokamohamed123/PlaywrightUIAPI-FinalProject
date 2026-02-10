@@ -42,7 +42,6 @@ Feature: API E2E Scenarios - Swagger Notes Management
   # (Negative Scenario) Security Validation - Separation of Concerns
   @security
   Scenario: Negative Path - Update Note without Authorization
-    # لا نقوم بتسجيل الدخول هنا لاختبار رفض الوصول
     When I attempt to update a note without providing a valid auth token
     Then the system should deny the request with status code 401
 
