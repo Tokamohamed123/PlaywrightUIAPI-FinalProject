@@ -81,8 +81,8 @@ Each folder contains:
 
 1. **Clone the project**
    ```bash
-   git clone https://github.com/Tokamohamed123/TestAPIUI.git
-   cd TestAPIUI
+   git clone https://github.com/Tokamohamed123/PlaywrightUIAPI-FinalProject.git
+   cd PlaywrightUIAPI-FinalProject
    ```
 
 2. **Install dependencies**

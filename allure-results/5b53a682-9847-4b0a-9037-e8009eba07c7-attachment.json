@@ -1,0 +1,22 @@
+{
+  "step": "Validation Check: Long Password",
+  "duration": "222ms",
+  "request": {
+    "method": "POST",
+    "url": "https://practice.expandtesting.com/notes/api/users/register",
+    "data": {
+      "desc": "Long Password",
+      "name": "tokam",
+      "email": "long@test.com",
+      "pass": "thispasswordiswaytoolongtoberegistered"
+    }
+  },
+  "response": {
+    "status": 400,
+    "body": {
+      "success": false,
+      "status": 400,
+      "message": "Password must be between 6 and 30 characters"
+    }
+  }
+}

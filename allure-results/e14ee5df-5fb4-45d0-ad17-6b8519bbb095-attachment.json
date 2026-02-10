@@ -1,0 +1,22 @@
+{
+  "step": "Validation Check: Empty Password",
+  "duration": "366ms",
+  "request": {
+    "method": "POST",
+    "url": "https://practice.expandtesting.com/notes/api/users/register",
+    "data": {
+      "desc": "Empty Password",
+      "name": "tokam",
+      "email": "empty@test.com",
+      "pass": ""
+    }
+  },
+  "response": {
+    "status": 400,
+    "body": {
+      "success": false,
+      "status": 400,
+      "message": "Password must be between 6 and 30 characters"
+    }
+  }
+}

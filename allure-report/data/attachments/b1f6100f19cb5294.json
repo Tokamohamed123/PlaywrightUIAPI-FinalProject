@@ -1,0 +1,20 @@
+{
+  "step": "Change Password",
+  "duration": "589ms",
+  "request": {
+    "method": "POST",
+    "url": "https://practice.expandtesting.com/notes/api/users/change-password",
+    "data": {
+      "currentPassword": "OldPassword123",
+      "newPassword": "NewSecurePass456"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "status": 200,
+      "message": "The password was successfully updated"
+    }
+  }
+}
