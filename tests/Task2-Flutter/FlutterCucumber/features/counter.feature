@@ -12,4 +12,11 @@ Background: open the website
 Scenario: Verify counter stays at zero without interaction
   Then The counter should display "Index: 0"
 
- 
+
+
+Scenario: Reset counter when the page is refreshed
+    When I click the "+" increment button
+    And I click the "+" increment button
+    Then The counter should display "Index: 2"
+    When I refresh the page
+    Then The counter should display "Index: 0"

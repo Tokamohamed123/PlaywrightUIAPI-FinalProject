@@ -1,0 +1,17 @@
+{
+  "step": "Delete Note",
+  "duration": "303ms",
+  "request": {
+    "method": "DELETE",
+    "url": "https://practice.expandtesting.com/notes/api/notes/698b1858f7461602953e3090",
+    "data": {}
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "status": 200,
+      "message": "Note successfully deleted"
+    }
+  }
+}

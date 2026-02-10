@@ -64,9 +64,12 @@ Then('I should see an error message indicating that mandatory fields are require
     for (const msg of errorMessages) {
         await expect(this.page.getByText(msg)).toBeVisible({ timeout: 7000 });
     }
+      await this.page.waitForTimeout(3000);
        // take screenshot after order completion and attach to the report
    const image = await this.page.screenshot();
     this.attach(image, 'image/png');
     }
+
+
 );
 

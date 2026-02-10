@@ -1,0 +1,25 @@
+{
+  "step": "Register User",
+  "duration": "1263ms",
+  "request": {
+    "method": "POST",
+    "url": "https://practice.expandtesting.com/notes/api/users/register",
+    "data": {
+      "name": "Automation Tester",
+      "email": "user_1770723413557@test.com"
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "success": true,
+      "status": 201,
+      "message": "User account created successfully",
+      "data": {
+        "id": "698b1857f7461602953e3083",
+        "name": "Automation Tester",
+        "email": "user_1770723413557@test.com"
+      }
+    }
+  }
+}

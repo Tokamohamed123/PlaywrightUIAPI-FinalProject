@@ -19,7 +19,7 @@ When('I click the "+" increment button', async function () {
     // get the value before clicking 
     valueBefore = await this.flutterPage.getCounterValue();
     
-    // --- سكرين شوت قبل الزيادة ---
+    // 
     const image = await this.page.screenshot({ fullPage: true });
     this.attach(image, 'image/png');
     
@@ -36,6 +36,21 @@ When('I click on a neutral area of the screen', async function () {
     await this.flutterPage.clickNeutralArea();
 });
 
+
+When('I refresh the page', async function () {
+    // 1. Perform the actual browser reload
+    console.log("Refreshing the page...");
+    await this.page.reload();
+
+    // 2. IMPORTANT: Re-enable Flutter semantics 
+    // Because a refresh clears the accessibility tree
+    console.log("Re-activating Flutter semantics after refresh...");
+    await this.flutterPage.enableSemantics();
+
+    // 3. Take a screenshot to document the reset state in the report
+    const image = await this.page.screenshot({ fullPage: true });
+    this.attach(image, 'image/png');
+});
 
 // Then('The counter should display {string}', async function (expectedValue: string) {
 // ... (Your original commented code)
@@ -58,7 +73,7 @@ Then('The counter should display {string}', async function (expectedValue: strin
                     return match ? parseInt(match[0]) === expected : false;
                 },
                 expectedNum,
-                { timeout: 15000 } // ينتظر حتى 15 ثانية كحد أقصى ولكنه يكمل فور تحقق الشرط
+                { timeout: 15000 } 
             );
         } catch (e) {
             const allLabels = await this.page.evaluate(() => 
@@ -83,6 +98,8 @@ Then('The counter should display {string}', async function (expectedValue: strin
     console.log(` Final Check: Expected=${expectedNum}, Now=${valueNow}`);
     expect(valueNow).toBe(expectedNum);
 });
+
+
 
 //////////////////////////////////////////
 
