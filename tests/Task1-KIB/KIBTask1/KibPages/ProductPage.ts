@@ -5,9 +5,8 @@ export default class ProductPage extends basePage {
     /////////Locators//////////////////
 
     // Product element
-    private readonly AddTestProductToCart = this.page.locator(
-        "//div[@data-testid='resource-list-grid']/div[2]//div[@data-product-id='8571523137735']"
-    );
+private readonly AddTestProductToCart = this.page.locator("product-card[data-product-id='8571523137735'] a.product-card__link");    //     "//div[@data-testid='resource-list-grid']/div[2]//div[@data-product-id='8571523137735']"
+    // );
     
     // Buy Now button
     private readonly BuyNowBT = this.page.locator(
@@ -19,20 +18,15 @@ export default class ProductPage extends basePage {
 
     /////////////////Methods///////////////////
     async ClickOnTestProduct() {
- const productLink = this.page.locator("product-title")
-        .filter({ hasText: /^Test Product$/ })
-        .locator('a')
-        .first(); // .first() means if there are multiple matches, take the first one
-
+     await this.page.waitForLoadState('networkidle');
     await this.AddTestProductToCart.waitFor({ state: 'visible', timeout: 15000 });
     await this.AddTestProductToCart.scrollIntoViewIfNeeded();
     await this.AddTestProductToCart.click({ force: true });
     
     console.log('Successfully clicked on the product');
+     await this.page.waitForLoadState('load');
 
-
-    const buyNowBtn = this.page.getByRole('button', { name: 'Buy it now' });
-    await buyNowBtn.waitFor({ state: 'visible', timeout: 15000 });
+  await this.BuyNowBTAlternative.waitFor({ state: 'visible', timeout: 15000 });
     }
 
     async ClickOnBuyNow() {
